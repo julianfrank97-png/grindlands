@@ -1,0 +1,43 @@
+GRINDLANDS PWA — Installation auf dem iPhone
+=============================================
+
+Inhalt dieses Ordners:
+  index.html, bundle.js, sw.js, manifest.webmanifest, icon-192.png, icon-512.png
+  (entry.jsx ist nur der Quell-Einstiegspunkt, wird zum Betrieb nicht gebraucht)
+
+Weg A — GitHub Pages (empfohlen, dauerhaft, kostenlos)
+------------------------------------------------------
+1. Neues GitHub-Repo anlegen (z. B. "grindlands"), gern privat? -> Nein:
+   GitHub Pages braucht bei Free-Accounts ein OEFFENTLICHES Repo.
+2. Alle Dateien aus diesem Ordner ins Repo-Root hochladen
+   (Web-Oberflaeche: "Add file" -> "Upload files" reicht).
+3. Repo -> Settings -> Pages -> Source: "Deploy from a branch",
+   Branch: main, Ordner: / (root) -> Save.
+4. 1-2 Minuten warten. Die Seite liegt dann unter:
+   https://DEINNAME.github.io/grindlands/
+5. Diese URL auf dem iPhone in SAFARI oeffnen (nicht Chrome!).
+6. Teilen-Button (Quadrat mit Pfeil) -> "Zum Home-Bildschirm" -> Hinzufuegen.
+
+Fertig: Eigenes Icon, Vollbild ohne Browserleiste, laeuft nach dem
+ersten Laden auch offline (Service Worker cached alles).
+
+Weg B — Schnelltest im lokalen Netz
+-----------------------------------
+Auf dem PC im Ordner:  python3 -m http.server 8000
+Am iPhone (gleiches WLAN):  http://<PC-IP>:8000
+Hinweis: Ohne HTTPS registriert sich der Service Worker nicht,
+das Spiel laeuft aber trotzdem. Fuer die echte Installation Weg A nutzen.
+
+Spielstand
+----------
+Liegt im localStorage des iPhones (pro Domain). Autosave alle 30 s
+und beim Verlassen. Backup: im Spiel Settings -> Export (JSON kopieren),
+Wiederherstellen ueber Import. Achtung: Safari kann Website-Daten
+loeschen, wenn eine Web-App sehr lange nicht geoeffnet wird —
+gelegentlich exportieren schadet nicht.
+
+Update einspielen
+-----------------
+Neue Dateien einfach ins Repo hochladen (ueberschreiben). Der Service
+Worker laedt die neue Version beim naechsten Start; falls noetig,
+App einmal schliessen und neu oeffnen.

@@ -1,0 +1,15 @@
+{
+  "name": "Grindlands",
+  "short_name": "Grindlands",
+  "description": "A tick-based OSRS-style grind RPG. 21 skills, 4 bosses, one long road to 99.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#d8c69c",
+  "theme_color": "#33261a",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
